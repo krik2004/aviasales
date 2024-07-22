@@ -1,0 +1,77 @@
+.container {
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  width: 100%;
+  min-height: 184px;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 20px 0px 20px;
+}
+
+.card__price {
+  color: rgb(33, 150, 243);
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.card__item {
+  margin: 10px 20px 0px 20px;
+  display: flex;
+  justify-items: start;
+}
+
+.card__route {
+  display: flex;
+  width: 141px;
+  flex-direction: column;
+}
+
+.card__lenght {
+  display: flex;
+  width: 141px;
+  flex-direction: column;
+}
+
+.card__stops {
+  display: flex;
+  width: 141px;
+  flex-direction: column;
+}
+
+.card__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 8px;
+}
+
+.card__textValue {
+  color: rgb(74, 74, 74);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.card__textDescription {
+  color: rgb(160, 176, 185);
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+}

@@ -1,0 +1,95 @@
+.filter__wrapper {
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  padding-bottom: 10px;
+}
+
+.filter__title {
+  color: rgb(74, 74, 74);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0px;
+  padding: 20px 20px 20px 20px;
+}
+.filter__checkbox {
+  margin-right: 10px;
+  display: none;
+}
+
+.filter__label {
+  color: rgb(74, 74, 74);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+
+  position: relative;
+  padding-left: 50px;
+  cursor: pointer;
+  color: rgb(74, 74, 74);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.filter__label::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(154, 187, 206);
+  background: transparent;
+  border-radius: 3px;
+}
+
+.filter__checkbox:checked + .filter__label::before {
+  background: transparent;
+  border: 2px solid #ff0000;
+}
+
+.filter__label:hover {
+  background: rgb(241, 252, 255);
+}
+.filter__checkbox:checked + .filter__label::before {
+  border: 1px solid rgb(33, 150, 243);
+}
+
+.filter__checkbox:checked + .filter__label::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 18px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 5px;
+  height: 10px;
+  background: transparent;
+  border: solid #00bfff;
+  border-width: 0 2px 2px 0;
+}
+
+.filter__checkbox:checked + .filter__label::after {
+  display: block;
+}
+
+.filter__label:hover {
+  background: rgb(241, 252, 255);
+}
