@@ -1,25 +1,46 @@
 import React, { useState } from 'react'
 import styles from './radio-group.module.css'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { setSort } from '../redux-toolkit/toolkit-slice.js'
+
 const RadioGroup = () => {
-  const [size, setSize] = useState('small')
-
-  const onChange = (e) => {
-    setSize(e.target.value)
-  }
-
+  const sort = useSelector((state) => state.filter.sort)
+  const dispatch = useDispatch()
+  
   return (
     <div className={styles['radio-container']}>
-      <input className={styles.radio} type="radio" name="browser" value="ie" id="ie" />
-      <label className={`${styles['radio-label']} ${styles['radio-label-left']}`} htmlFor="ie">
+      <input
+        className={styles.radio}
+        type="radio"
+        name="radio-filter"
+        value="cheapest"
+        id="cheapest"
+        onChange={(e) => dispatch(setSort(e.target.value))}
+      />
+      <label className={`${styles['radio-label']} ${styles['radio-label-left']}`} htmlFor="cheapest">
         <span className="radio-title">Самый дешевый</span>
       </label>
-      <input className={styles.radio} type="radio" name="browser" value="opera" id="opera" />
-      <label className={`${styles['radio-label']} ${styles['radio-label-center']}`} htmlFor="opera">
+      <input
+        className={styles.radio}
+        type="radio"
+        name="radio-filter"
+        value="fastest"
+        id="fastest"
+        onChange={(e) => dispatch(setSort(e.target.value))}
+      />
+      <label className={`${styles['radio-label']} ${styles['radio-label-center']}`} htmlFor="fastest">
         <span className="radio-title">Самый быстрый</span>
       </label>
-      <input className={styles.radio} type="radio" name="browser" value="firefox" id="firefox" />
-      <label className={`${styles['radio-label']} ${styles['radio-label-right']}`} htmlFor="firefox">
+      <input
+        className={styles.radio}
+        type="radio"
+        name="radio-filter"
+        value="optimal"
+        id="optimal"
+        onChange={(e) => dispatch(setSort(e.target.value))}
+      />
+      <label className={`${styles['radio-label']} ${styles['radio-label-right']}`} htmlFor="optimal">
         <span className="radio-title">Оптимальный</span>
       </label>
     </div>
