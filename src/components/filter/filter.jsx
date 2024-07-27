@@ -11,13 +11,12 @@ import {
 
 const Filter = () => {
   const isCheckedAll = useSelector((state) => state.filter.isCheckedAll)
-  const isCheckedNone = useSelector((state) => state.filter.isCheckedNone)
+  const isCheckedNoTransfers = useSelector((state) => state.filter.isCheckedNoTransfers)
   const isCheckedOneTransfer = useSelector((state) => state.filter.isCheckedOneTransfer)
   const isCheckedTwoTransfer = useSelector((state) => state.filter.isCheckedTwoTransfer)
   const isCheckedThreeTransfers = useSelector((state) => state.filter.isCheckedThreeTransfers)
 
   const dispatch = useDispatch()
-  console.log(isCheckedAll)
   return (
     <div className={styles.filter__wrapper}>
       <h1 className={styles.filter__title}>Количество пересадок </h1>
@@ -27,7 +26,6 @@ const Filter = () => {
           type="checkbox"
           className={styles.filter__checkbox}
           id="myCheckbox1"
-          // onChange={(e) => console.log(e.target.checked)}
           onChange={(e) => dispatch(toggleCheckAll(e.target.checked))}
           checked={isCheckedAll}
         />
@@ -40,7 +38,7 @@ const Filter = () => {
           className={styles.filter__checkbox}
           id="myCheckbox2"
           onChange={(e) => dispatch(toggleCheckNone(e.target.checked))}
-          checked={isCheckedNone}
+          checked={isCheckedNoTransfers}
         />
         <label className={styles.filter__label} htmlFor="myCheckbox2">
           Без пересадок

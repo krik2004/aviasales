@@ -1,26 +1,23 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
-
 import Header from './components/header/header.jsx'
-import Card from './components/card/card.jsx'
 import Filter from './components/filter/filter.jsx'
 import RadioGroup from './components/radio-group/radio-group.jsx'
 import CardList from './components/card-list/card-list.jsx'
-
 import styles from './index.module.css'
-
-import { Provider, useDispatch, useSelector } from 'react-redux'
-
+import { Provider, useDispatch } from 'react-redux'
 import store from './components/store.js'
-import { fetchApi } from './components/redux-toolkit/toolkit-slice.js'
-
+import { fetchApi, fetchID } from './components/redux-toolkit/toolkit-slice.js'
 
 const App = () => {
   const dispatch = useDispatch()
-  const { status, error } = useSelector((state) => state.filter)
 
   useEffect(() => {
-    dispatch(fetchApi())
+    const fetchData = async () => {
+      const id = await dispatch(fetchID()).unwrap()
+      dispatch(fetchApi(id))
+    }
+    fetchData()
   }, [dispatch])
 
   return (
@@ -32,7 +29,7 @@ const App = () => {
         </div>
         <div className={`${styles.column} ${styles.rightColumn}`}>
           <RadioGroup />
-          <CardList/>
+          <CardList />
         </div>
       </div>
     </div>

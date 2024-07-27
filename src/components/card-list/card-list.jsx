@@ -1,31 +1,56 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from './card-list.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-//Импортируем хуки `useDispatch` и `useSelector` из библиотеки Redux. `useDispatch` позволяет отправлять действия (actions) в хранилище (store), а `useSelector` позволяет извлекать данные из хранилища.
+import { useSelector } from 'react-redux'
 import Card from '../card/card.jsx'
 import { Spin, Alert } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 import { v4 as uuidv4 } from 'uuid'
-
+import { selectFilteredCards } from '../redux-toolkit/toolkit-slice.js'
+import { Progress } from 'antd'
 
 const CardList = () => {
-  const dispatch = useDispatch()
-  const cards = useSelector((state) => state.filter.data.tickets)
-  const { status, error } = useSelector((state) => state.filter)
-
+  const filteredCards = useSelector(selectFilteredCards)
+  const { status, error, loadingCount, preError } = useSelector((state) => state.filter)
   let content
+  let progressStatus
+  if (preError) {
+    progressStatus = 'exception'
+  } else {
+    progressStatus = 'active'
+  }
   if (status === 'loading') {
     content = <Spin indicator={<LoadingOutlined spin />} size="large" />
-  } else if (status === 'resolved') {
-    content = cards.map((card) => <Card key={uuidv4()} card={card} />)
-
+    if (filteredCards.length > 0) {
+      content = (
+        <div style={{ position: 'relative' }}>
+          <Progress
+            percent={loadingCount}
+            status={progressStatus}
+            showInfo={false}
+            style={{ position: 'absolute', top: -20, left: 0, width: '100%' }}
+          />
+          {filteredCards.slice(0, 5).map((card) => (
+            <Card key={uuidv4()} card={card} />
+          ))}
+        </div>
+      )
+    } else {
+      content = (
+        <Alert
+          message="Информация:"
+          description="Рейсов, подходящих под заданные фильтры, не найдено. В следующий раз повезет =)"
+          type="info"
+          showIcon
+          className={styles['alert-message']}
+        />
+      )
+    }
   } else if (error) {
     content = <Alert message="Error" description={error} type="error" showIcon className={styles['alert-message']} />
+  } else {
+    content = filteredCards.slice(0, 5).map((card) => <Card key={uuidv4()} card={card} />)
   }
-  return (
-    <div>
-      {content}
-    </div>
-  )
+  return <div>{content}</div>
 }
+
 export default CardList

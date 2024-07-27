@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './radio-group.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort } from '../redux-toolkit/toolkit-slice.js'
 
 const RadioGroup = () => {
-  const sort = useSelector((state) => state.filter.sort)
   const dispatch = useDispatch()
-  
   return (
     <div className={styles['radio-container']}>
       <input
