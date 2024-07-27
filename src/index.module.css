@@ -31,3 +31,11 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: auto;
+    overflow-x: auto;
+    scrollbar-width: 20px;
+  }
+}
