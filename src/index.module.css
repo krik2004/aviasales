@@ -22,6 +22,14 @@ code {
   .column {
     margin: 0 5px;
   }
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  flex-direction: column;
+  gap: 20px;
+}
+  
 }
 .leftColumn {
   width: 232px;
@@ -38,4 +46,10 @@ code {
     overflow-x: auto;
     scrollbar-width: 20px;
   }
+  .leftColumn {
+  width: auto;
+}
+  .rightColumn {
+  width: auto;
+}
 }

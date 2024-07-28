@@ -94,3 +94,71 @@
 .filter__label:hover {
   background: rgb(241, 252, 255);
 }
+@media (max-width: 768px) {
+  .filter__checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .filter__title {
+    color: rgb(74, 74, 74);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 5px;
+  }
+  .filter__label::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(154, 187, 206);
+    background: transparent;
+    border-radius: 3px;
+  }
+
+  .filter__checkbox:checked + .filter__label::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 18px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 5px;
+    height: 10px;
+    background: transparent;
+    border: solid #00bfff;
+    border-width: 0 2px 2px 0;
+  }
+  .filter__label {
+  color: rgb(74, 74, 74);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  color: rgb(74, 74, 74);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  min-width: 93px;
+}
+}

@@ -1,2 +1,3 @@
-# AVIASALES VERSEL
- [AVIASALES VERSEL](https://aviasales-omega-self.vercel.app).
+# AVIASALES
+
+[AVIASALES VERSEL](https://aviasales-omega-self.vercel.app)

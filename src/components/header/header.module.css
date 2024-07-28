@@ -2,3 +2,9 @@
   display: block;
   margin: 50px auto;
 }
+@media (max-width: 768px) {
+  .main_logo {
+    display: block;
+    margin: 10px auto;
+  }
+}

@@ -20,7 +20,6 @@ const Filter = () => {
   return (
     <div className={styles.filter__wrapper}>
       <h1 className={styles.filter__title}>Количество пересадок </h1>
-
       <div className={styles.filter__checkboxContainer}>
         <input
           type="checkbox"
