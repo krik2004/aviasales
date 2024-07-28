@@ -100,6 +100,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    padding: 5px;
   }
   .filter__title {
     color: rgb(74, 74, 74);
@@ -111,7 +112,7 @@
     text-align: left;
     text-transform: uppercase;
     margin: 0px;
-    padding: 5px;
+    padding: 10px 12px 0px 12px;
   }
   .filter__label::before {
     content: '';
@@ -139,26 +140,33 @@
     border-width: 0 2px 2px 0;
   }
   .filter__label {
-  color: rgb(74, 74, 74);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: left;
-  padding: 10px;
-  display: block;
-  cursor: pointer;
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  color: rgb(74, 74, 74);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: left;
-  min-width: 93px;
-}
+    color: rgb(74, 74, 74);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    color: rgb(74, 74, 74);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    min-width: 93px;
+  }
+  .filter__wrapper {
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    padding-bottom: 0px;
+  }
 }
