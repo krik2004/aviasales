@@ -66,6 +66,7 @@ const filterSlice = createSlice({
     error: null,
     data: [],
     loadingCount: 0,
+    visibleCount: 5,
   },
   reducers: {
     togglepreError(state, action) {
@@ -75,8 +76,12 @@ const filterSlice = createSlice({
       state.data.push(...action.payload)
       state.loadingCount += 5
     },
+    handleShowMore: (state) => {
+      state.visibleCount += 5
+    },
     setSort: (state, action) => {
       state.sort = action.payload
+      state.visibleCount = 5
     },
     toggleCheckAll: (state, action) => {
       const newValue = action.payload
@@ -85,9 +90,11 @@ const filterSlice = createSlice({
       state.isCheckedOneTransfer = newValue
       state.isCheckedTwoTransfer = newValue
       state.isCheckedThreeTransfers = newValue
+      state.visibleCount = 5
     },
     toggleCheckNone: (state, action) => {
       state.isCheckedNoTransfers = action.payload
+      state.visibleCount = 5
       if (!action.payload) {
         state.isCheckedAll = false
       }
@@ -96,6 +103,7 @@ const filterSlice = createSlice({
       }
     },
     toggleCheckOneTransfer: (state, action) => {
+      state.visibleCount = 5
       state.isCheckedOneTransfer = action.payload
       if (!action.payload) {
         state.isCheckedAll = false
@@ -105,6 +113,7 @@ const filterSlice = createSlice({
       }
     },
     toggleCheckTwoTransfer: (state, action) => {
+      state.visibleCount = 5
       state.isCheckedTwoTransfer = action.payload
       if (!action.payload) {
         state.isCheckedAll = false
@@ -114,6 +123,7 @@ const filterSlice = createSlice({
       }
     },
     toggleCheckThreeTransfers: (state, action) => {
+      state.visibleCount = 5
       state.isCheckedThreeTransfers = action.payload
       if (!action.payload) {
         state.isCheckedAll = false
@@ -233,6 +243,7 @@ export const {
   toggleCheckOneTransfer,
   toggleCheckTwoTransfer,
   toggleCheckThreeTransfers,
+  handleShowMore,
 } = filterSlice.actions
 export default filterSlice.reducer
 export const selectFilteredCards = filterSlice.selectors.selectFilteredCards
